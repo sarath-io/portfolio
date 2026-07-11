@@ -1,0 +1,38 @@
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Animated current flow along schematic paths */
+.flow-path {
+  stroke-dasharray: 6 10;
+  animation: flow 3.2s linear infinite;
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -160;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-path {
+    animation: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
