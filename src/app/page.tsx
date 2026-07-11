@@ -1,4 +1,4 @@
-import { Box, Container } from "@mui/material";
+import { Box } from "@mui/material";
 import PrimaryNavbar from "@/components/layout/PrimaryNavbar";
 import HeroSection from "@/components/hero/HeroSection";
 import ExperienceSection from "@/components/experience/ExperienceSection";
@@ -12,9 +12,7 @@ export default function HomePage() {
   return (
     <Box component="main" id="main-content" sx={{ minHeight: "100vh", bgcolor: "background.default" }}>
       <PrimaryNavbar />
-      <Container maxWidth="lg" sx={{ pt: { xs: 4, md: 6 }, pb: { xs: 8, md: 12 } }}>
-        <HeroSection />
-      </Container>
+      <HeroSection />
       <ExperienceSection />
       <ProjectShowcase />
       <SkillsSection />

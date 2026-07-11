@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Box, Chip, Divider, Stack, Snackbar, Typography } from "@mui/material";
+import { Box, Chip, Container, Divider, Stack, Snackbar, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaDownload } from "react-icons/fa";
 import GradientButton from "@/components/common/GradientButton";
@@ -24,19 +24,29 @@ export default function HeroSection() {
     setToastOpen(true);
   };
 
+  const handleDownloadResume = () => {
+    const link = document.createElement("a");
+    link.href = heroActions[0].href;
+    link.download = heroActions[0].href.split("/").pop() || "resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <motion.div
       initial={prefersReducedMotion ? false : { opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <Box component="section" id="home" sx={{ position: "relative", overflow: "hidden" }}>
+      <Box component="section" id="home" sx={{ position: "relative", overflow: "hidden", bgcolor: "background.default" }}>
         <Box sx={{ position: "absolute", inset: 0, height: "100%", width: "100%", opacity: 0.7, pointerEvents: "none" }}>
           <CircuitTrace />
         </Box>
         <Box sx={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent, rgba(7, 11, 16, 0.4))" }} />
 
-        <Stack spacing={4} sx={{ position: "relative", zIndex: 1 }}>
+        <Container maxWidth="lg">
+          <Stack spacing={4} sx={{ position: "relative", zIndex: 1, py: { xs: 8, md: 12 } }}>
           <Box>
             <Stack direction="row" spacing={1} alignItems="center" mb={2}>
               <Box
@@ -75,7 +85,7 @@ export default function HeroSection() {
           </Stack>
 
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-            <GradientButton href={heroActions[0].href} startIcon={iconMap.download}>
+            <GradientButton onClick={handleDownloadResume} startIcon={iconMap.download}>
               {heroActions[0].label}
             </GradientButton>
             <SocialButton label={heroActions[1].label} icon={iconMap.linkedin} href={heroActions[1].href} />
@@ -95,6 +105,7 @@ export default function HeroSection() {
             </Typography>
           </Box>
         </Stack>
+        </Container>
 
         <Snackbar
           open={toastOpen}

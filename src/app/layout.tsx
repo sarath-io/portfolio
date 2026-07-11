@@ -44,9 +44,12 @@ export const metadata: Metadata = {
     images: ["/scb_icon.svg"],
   },
   icons: {
-    icon: "/scb_icon.svg",
-    shortcut: "/scb_icon.svg",
-    apple: "/scb_icon.svg",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/scb_icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
   alternates: {
     canonical: "/",
