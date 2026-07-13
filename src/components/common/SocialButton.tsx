@@ -33,13 +33,15 @@ const StyledButton = styled(Button)(({ theme }) => ({
 }));
 
 export default function SocialButton({ label, icon, href, disabled, tooltip, onClick }: SocialButtonProps) {
+  const linkProps = href && !disabled ? { component: "a" as const, href, target: "_blank", rel: "noopener noreferrer" } : {};
+
   const button = (
     <StyledButton
       variant="outlined"
       startIcon={icon}
-      href={disabled ? undefined : href}
-      onClick={disabled ? onClick : undefined}
       disabled={disabled}
+      onClick={disabled ? undefined : onClick}
+      {...linkProps}
     >
       {label}
     </StyledButton>
