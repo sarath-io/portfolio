@@ -15,7 +15,7 @@ export default function ContactSection() {
                   {link.label}
                 </Typography>
                 {link.href.startsWith("mailto:") || link.href.startsWith("http") ? (
-                  <Link href={link.href} underline="hover" color="text.primary" sx={{ fontWeight: 600 }}>
+                  <Link href={link.href} underline="hover" color="text.primary" sx={{ fontWeight: 600 }} target="_blank" rel="noopener noreferrer">
                     {link.value}
                   </Link>
                 ) : (

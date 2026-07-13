@@ -33,7 +33,7 @@ export default function PrimaryNavbar() {
         position="sticky"
         elevation={0}
         sx={{
-          bgcolor: "rgba(10, 20, 16, 0.94)",
+          bgcolor: "rgba(10, 20, 16, 0.1)",
           backdropFilter: "blur(14px)",
           borderBottom: 1,
           borderColor: "divider",
@@ -143,9 +143,17 @@ export default function PrimaryNavbar() {
         }}
       >
         <Box sx={{ px: 2 }}>
-          <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
+          <Box sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}><Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
             Navigate
           </Typography>
+          <Button onClick={handleDrawerToggle} sx={{color: "#fff"}}>
+          <CloseIcon />
+          </Button>
+          </Box>
           <List>
             {navLinks.map((link) => (
               <ListItemButton

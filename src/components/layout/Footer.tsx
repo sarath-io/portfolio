@@ -10,7 +10,7 @@ export default function Footer() {
             © 2026 Sarath Chandra Bokkela. All rights reserved.
           </Typography>
           <Stack direction="row" spacing={2}>
-            <Link href="https://linkedin.com/in/sarathchandrabokkela" underline="hover" color="text.secondary">
+            <Link href="https://linkedin.com/in/sarathchandrabokkela" underline="hover" color="text.secondary" target="_blank" rel="noopener noreferrer">
               LinkedIn
             </Link>
             <Tooltip title="GitHub portfolio coming soon.">
@@ -20,7 +20,7 @@ export default function Footer() {
                 </Button>
               </span>
             </Tooltip>
-            <Link href="mailto:sarathchandra.bokkela@gmail.com" underline="hover" color="text.secondary">
+            <Link href="mailto:sarathchandra.bokkela@gmail.com" underline="hover" color="text.secondary" target="_blank" rel="noopener noreferrer">
               Email
             </Link>
           </Stack>
